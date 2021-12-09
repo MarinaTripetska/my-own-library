@@ -1,0 +1,11 @@
+*,
+*:hover,
+*:focus {
+  box-sizing: border-box;
+}
+.input-txt:valid:focus {
+  border: solid 1px #18e109;
+}
+.input-txt:invalid:focus {
+  border: solid 1px #f5192f;
+}
