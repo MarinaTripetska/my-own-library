@@ -18,6 +18,3 @@ nie może zostać dodana.
 • Użytkownik ma możliwość dodania kolejnej książki do tabeli.
 • Cała tabela zapisuje się w localstorage (przy ponownym otworzeniu przeglądarki zostaje
 załadowana ponownie i wyświetlona z takim samym stanem jak była przy zamknięciu).
-
-//done
-//dodatkowe funkcje: usuwanie, stylizacja, wyszukiwanie, sortowanie po categorii, sortowanie po prioritetowosci

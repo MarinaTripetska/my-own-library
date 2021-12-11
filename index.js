@@ -1,12 +1,10 @@
 "use strict";
 
-const ElNotification = document.getElementById("notification");
 const ElInputAuthorName = document.getElementById("inputAuthorName");
-const ElBooksList = document.querySelector(".books-list");
+const ElBooksList = document.querySelector(".books__list");
 const form = document.querySelector(".form");
 
 let booksList = [];
-
 class Book {
   constructor(author, title, category, priority) {
     this.author = author;
@@ -18,7 +16,6 @@ class Book {
 
 window.addEventListener("load", () => getStorageAPI("books"));
 window.addEventListener("load", generateBooksListMarkup);
-
 window.addEventListener("beforeunload", () =>
   localStorage.setItem("books", JSON.stringify(booksList))
 );
@@ -45,8 +42,8 @@ function handleSubmit(e) {
   const bookItem = new Book(
     author.value,
     book.value,
-    priority.value,
-    category.value
+    category.value,
+    priority.value
   );
 
   booksList.push(bookItem);
@@ -54,18 +51,32 @@ function handleSubmit(e) {
 
   ElBooksList.insertAdjacentHTML("beforeend", generateBookMarkup(bookItem));
 }
+
 function generateBookMarkup(book) {
-  return `<li class='book__item'>
-              <div class='book__card'>
-                 <h3 class='book__name'>Book: "${book.title}"</h3>
-                  <p class='book__author'>Author: ${book.author}</p>
-                 <p class='book__category'>Category: ${book.category}</p>
-                  <p class='book__priority'>Priority: ${book.priority}</p>
-                
-                  </div>
-              </div>
-            </li>`;
+  return `<li class='books__item'>
+ 
+      <div class="book">
+        <div class="front">
+          <div class="cover">
+             <p class="title">${book.title}</p>
+              <p class="author">${book.author}</p>
+
+              <p class='category'>${book.category}</p>
+          <p class='priority'>Priority: ${book.priority}</p>
+          </div>
+        </div>
+        <div class="left-side">
+          <h2 class="left-side__txt">
+            <span class="left-side__author">${book.author}</span>
+            <span class="left-side__title">${book.title}</span>
+            
+          </h2>
+        </div>
+      </div>
+           
+   </li>`;
 }
+
 function generateBooksListMarkup() {
   if (booksList.length === 0) {
     return;
@@ -73,6 +84,14 @@ function generateBooksListMarkup() {
   const bookItemMarkup = booksList
     .map((book) => generateBookMarkup(book))
     .join("");
-  console.log(bookItemMarkup);
   ElBooksList.insertAdjacentHTML("beforeend", bookItemMarkup);
 }
+//  <div class='book__card'>
+//                  <h3 class='book__name'>${book.title}</h3>
+
+//                   <p class='book__author'>${book.author}</p>
+//                  <p class='book__category'>Category: ${book.category}</p>
+//                   <p class='book__priority'>Priority: ${book.priority}</p>
+
+//                   </div>
+//               </div>

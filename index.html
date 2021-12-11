@@ -36,6 +36,7 @@
               minlength="3"
               title="Please enter your author name. Minimum 3 letters"
               autocomplete="off"
+              autofocus
               required
             />
           </label>
@@ -81,13 +82,17 @@
             <input type="radio" name="priority" value="5" /><i></i>
           </div>
 
-          <button type="submit" aria-label="Add new book" class="batton-add">
+          <button type="submit" aria-label="Add new book" class="button-add">
             +
           </button>
         </form>
       </div>
     </section>
-    <ul class="books-list"></ul>
+    <section class="section">
+      <div class="container">
+        <ul class="books__list"></ul>
+      </div>
+    </section>
     <script src="./index.js" module=""></script>
   </body>
 </html>
