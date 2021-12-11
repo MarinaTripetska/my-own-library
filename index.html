@@ -4,82 +4,89 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+      integrity="sha512-wpPYUAdjBVSE4KJnH1VR1HeZfpl1ub8YT/NKx4PuQ5NmX2tKuGu6U/JRp5y+Y8XG2tV+wKQpNHVUX03MfMFn9Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles.css" />
     <title>My Library</title>
   </head>
   <body>
-    <div>
-      <form class="form">
-        <!-- <p class="notification" id="notification"></p> -->
-        <label>
-          Add author name
-          <input
-            id="inputAuthorName"
-            class="input-txt"
-            name="author"
-            type="text"
-            placeholder="John Smith"
-            minlength="3"
-            title="Please enter your author name. Minimum 3 letters"
-            required
-          />
-        </label>
-
-        <label>
-          Add book name
-          <input
-            class="input-txt"
-            type="text"
-            name="book"
-            placeholder="My book"
-            minlength="1"
-            title="Please enter your book name. Minimum 1 letters"
-            required
-          />
-        </label>
-
-        <div role="group" aria-labelledby="category-head">
-          <p id="category-head">Choose the category for this book</p>
-
-          <label for="category">Category</label>
-          <select id="category" name="category">
-            <option value="detective">Detective</option>
-            <option value="horror" selected>Horror</option>
-            <option value="adventure">Adventure</option>
-            <option value="classics" selected>Classics</option>
-          </select>
-        </div>
-
-        <div role="group" aria-labelledby="priority-reading-head">
-          <p id="priority-reading-head">
-            Choose priority reading for this book
-          </p>
-
-          <label>
-            <input type="radio" name="priority" value="1" checked />
-            1
+    <section class="section">
+      <div class="container">
+        <form class="form">
+          <h2 class="form__title">Add new book to your library</h2>
+          <label class="form__item">
+            Author name
+            <input
+              id="inputAuthorName"
+              class="input-txt"
+              name="author"
+              type="text"
+              placeholder="John Smith"
+              minlength="3"
+              title="Please enter your author name. Minimum 3 letters"
+              autocomplete="off"
+              required
+            />
           </label>
-          <label>
-            <input type="radio" name="priority" value="2" />
-            2
-          </label>
-          <label>
-            <input type="radio" name="priority" value="3" />
-            3
-          </label>
-          <label>
-            <input type="radio" name="priority" value="4" />
-            4
-          </label>
-          <label>
-            <input type="radio" name="priority" value="5" checked />
-            5
-          </label>
-        </div>
 
-        <button type="submit">+ Add</button>
-      </form>
-    </div>
+          <label class="form__item">
+            Book name
+            <input
+              class="input-txt"
+              type="text"
+              name="book"
+              placeholder="My book"
+              minlength="1"
+              title="Please enter your book name. Minimum 1 letters"
+              autocomplete="off"
+              required
+            />
+          </label>
+
+          <div role="group" aria-labelledby="category-head" class="form__item">
+            <p id="category-head">Book category</p>
+
+            <select id="category" name="category" class="select-input">
+              <option value="detective">Detective</option>
+              <option value="horror" selected>Horror</option>
+              <option value="adventure">Adventure</option>
+              <option value="classics" selected>Classics</option>
+            </select>
+          </div>
+
+          <div
+            role="group"
+            aria-labelledby="priority-reading-head"
+            class="form__item star-rating"
+          >
+            <p id="priority-reading-head" class="star-rating__title">
+              Priority of reading this book
+            </p>
+
+            <input type="radio" name="priority" value="1" /><i></i>
+            <input type="radio" name="priority" value="2" /><i></i>
+            <input type="radio" name="priority" value="3" checked /><i></i>
+            <input type="radio" name="priority" value="4" /><i></i>
+            <input type="radio" name="priority" value="5" /><i></i>
+          </div>
+
+          <button type="submit" aria-label="Add new book" class="batton-add">
+            +
+          </button>
+        </form>
+      </div>
+    </section>
     <ul class="books-list"></ul>
     <script src="./index.js" module=""></script>
   </body>
